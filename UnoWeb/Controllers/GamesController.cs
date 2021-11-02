@@ -103,5 +103,20 @@ namespace UnoWeb.Controllers
         {
             return _context.Games.Any(e => e.Id == id);
         }
+
+        // POST: api/Games/deck/3
+        [HttpPost("deck/{gameId}")]
+        private async Task<ActionResult<List<GameCard>>> CreateDeck (int gameId)
+        {
+            var game = await _context.Games.FindAsync(gameId);
+            if (game == null)
+            {
+                return NotFound();
+            }
+
+            var deck = new List<GameCard>();
+
+            deck = _context.GameCards.Add(new GameCard { Type.wild, })
+        }
     }
 }
