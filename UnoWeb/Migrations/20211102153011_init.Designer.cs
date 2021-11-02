@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnoWeb.Models;
 
 namespace UnoWeb.Migrations
 {
     [DbContext(typeof(UnoDbContext))]
-    partial class UnoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211102153011_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,7 +28,7 @@ namespace UnoWeb.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ActiveId")
+                    b.Property<int?>("ActiveId")
                         .HasColumnType("int");
 
                     b.Property<string>("GameRoom")
@@ -54,12 +56,6 @@ namespace UnoWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CardColor")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CardType")
-                        .HasColumnType("int");
 
                     b.Property<int>("GameId")
                         .HasColumnType("int");
@@ -138,9 +134,7 @@ namespace UnoWeb.Migrations
                 {
                     b.HasOne("UnoWeb.Models.Player", "Active")
                         .WithMany()
-                        .HasForeignKey("ActiveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ActiveId");
 
                     b.Navigation("Active");
                 });
