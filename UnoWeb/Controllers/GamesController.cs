@@ -108,6 +108,8 @@ namespace UnoWeb.Controllers
         [HttpPost("deck/{gameId}")]
         private async Task<ActionResult<List<GameCard>>> CreateDeck (int gameId)
         {
+            var gamecardctrl = new GameCardsController(context);
+            
             var game = await _context.Games.FindAsync(gameId);
             if (game == null)
             {
@@ -116,7 +118,62 @@ namespace UnoWeb.Controllers
 
             var deck = new List<GameCard>();
 
-            deck = _context.GameCards.Add(new GameCard { Type.wild, })
+            deck.Add(new GameCard(GameCard.Type.wild, GameCard.Color.wild, gameId));
+            deck.Add(new GameCard(GameCard.Type.one, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.two, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.three, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.four, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.five, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.six, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.seven, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.eight, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.nine, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.ten, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.skip, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.reverse, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.draw2, GameCard.Color.red, gameId));
+            deck.Add(new GameCard(GameCard.Type.one, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.two, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.three, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.four, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.five, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.six, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.seven, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.eight, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.nine, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.ten, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.skip, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.reverse, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.draw2, GameCard.Color.blue, gameId));
+            deck.Add(new GameCard(GameCard.Type.one, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.two, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.three, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.four, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.five, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.six, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.seven, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.eight, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.nine, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.ten, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.skip, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.reverse, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.draw2, GameCard.Color.yellow, gameId));
+            deck.Add(new GameCard(GameCard.Type.one, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.two, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.three, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.four, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.five, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.six, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.seven, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.eight, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.nine, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.ten, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.skip, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.reverse, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.draw2, GameCard.Color.green, gameId));
+            deck.Add(new GameCard(GameCard.Type.wildDraw4, GameCard.Color.wild, gameId));
+
+            foreach(var )
         }
     }
 }
