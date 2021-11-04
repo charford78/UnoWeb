@@ -106,7 +106,7 @@ namespace UnoWeb.Controllers
 
         // POST: api/Games/deck/3
         [HttpPost("deck/{gameId}")]
-        private async Task<ActionResult<List<GameCard>>> CreateDeck (int gameId)
+        public async Task<ActionResult<List<GameCard>>> CreateDeck (int gameId)
         {
             var gamecardctrl = new GameCardsController(context);
             
